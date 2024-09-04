@@ -1,1 +1,0 @@
-{"name":"Local: crayonbox","url":"/Users/madhulaggarwal/Documents/vsc/APIS/Sprinklr/crayonbox.cpp","tests":[{"id":1723828438340,"input":"7\na a b b a a c","output":"21"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/madhulaggarwal/Documents/vsc/APIS/Sprinklr/crayonbox.cpp","group":"local","local":true}
