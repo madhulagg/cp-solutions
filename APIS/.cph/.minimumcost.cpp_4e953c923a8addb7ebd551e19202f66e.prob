@@ -1,0 +1,1 @@
+{"name":"Local: minimumcost","url":"/Users/madhulaggarwal/Documents/vsc/APIS/minimumcost.cpp","tests":[{"id":1723827312897,"input":"4\n4 3 1 2\n1 2 3 4","output":"17"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/madhulaggarwal/Documents/vsc/APIS/minimumcost.cpp","group":"local","local":true}
