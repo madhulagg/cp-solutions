@@ -34,22 +34,21 @@ typedef pair<int, int> pii;
 #define rv(v) v.end(), v.begin()
 #define FAST ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
 
-void solve(){
+void solve() {
     int n, k;
     cin >> n >> k;
-    int a[n];
-    int prefix_sum[n];
-    int s_sum[n];
-    prefix_sum[0] = 0;
+    int total_sum = n * k + (n * (n - 1)) / 2;
+    int prefix_sum = 0;
+    int min_difference = LLONG_MAX;
 
-    fl(i, 0, n){
-        a[i] = k + i;
-        if(i > 0) prefix_sum[i] = prefix_sum[i-1] + a[i-1];
+    for (int i = 1; i <= n; ++i) {
+        prefix_sum += k + (i - 1);
+        int suffix_sum = total_sum - prefix_sum;
+        int difference = abs(prefix_sum - suffix_sum);
+        min_difference = min(min_difference, difference);
     }
-
-
+    cout << min_difference << endl;
 }
-
  
 signed main(){
     FAST;
