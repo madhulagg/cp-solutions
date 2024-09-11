@@ -33,7 +33,7 @@ typedef pair<int, int> pii;
 #define vr(v) v.begin(), v.end()
 #define rv(v) v.end(), v.begin()
 #define FAST ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
-
+// O(1)
 void solve(){
     int a,b;
     // a -> b

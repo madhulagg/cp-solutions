@@ -39,6 +39,8 @@ void solve(){
     cin >> n;
     int arr[n];
     cin >> n;
+    fl(i, 0, n) cin >> arr[i];
+    
 }
 
  
