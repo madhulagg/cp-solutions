@@ -1,0 +1,17 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     B_Kar_Salesman
+relocations:
+  - { offset: 0x26, size: 0x8, addend: 0x0, symName: __Z5solvev, symObjAddr: 0x0, symBinAddr: 0x100003A6C, symSize: 0x1A0 }
+  - { offset: 0x334C, size: 0x8, addend: 0x0, symName: __ZNSt3__13maxB8ne180100IxEERKT_S3_S3_, symObjAddr: 0x1A0, symBinAddr: 0x100003C0C, symSize: 0x2C }
+  - { offset: 0x3FED, size: 0x8, addend: 0x0, symName: __ZNSt3__14endlB8ne180100IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_, symObjAddr: 0x1F8, symBinAddr: 0x100003C64, symSize: 0x58 }
+  - { offset: 0x402D, size: 0x8, addend: 0x0, symName: __ZNSt3__13maxB8ne180100IxNS_6__lessIvvEEEERKT_S5_S5_T0_, symObjAddr: 0x31C, symBinAddr: 0x100003D88, symSize: 0x54 }
+  - { offset: 0x40CC, size: 0x8, addend: 0x0, symName: __ZNSt3__19use_facetB8ne180100INS_5ctypeIcEEEERKT_RKNS_6localeE, symObjAddr: 0x428, symBinAddr: 0x100003E94, symSize: 0x2C }
+  - { offset: 0x555E, size: 0x8, addend: 0x0, symName: __Z5solvev, symObjAddr: 0x0, symBinAddr: 0x100003A6C, symSize: 0x1A0 }
+  - { offset: 0x56E4, size: 0x8, addend: 0x0, symName: __ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsB8ne180100EPFRS3_S4_E, symObjAddr: 0x1CC, symBinAddr: 0x100003C38, symSize: 0x2C }
+  - { offset: 0x5716, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x250, symBinAddr: 0x100003CBC, symSize: 0xA0 }
+  - { offset: 0x573E, size: 0x8, addend: 0x0, symName: __ZNSt3__19basic_iosIcNS_11char_traitsIcEEE3tieB8ne180100EPNS_13basic_ostreamIcS2_EE, symObjAddr: 0x2F0, symBinAddr: 0x100003D5C, symSize: 0x2C }
+  - { offset: 0x5796, size: 0x8, addend: 0x0, symName: __ZNKSt3__16__lessIvvEclB8ne180100IxxEEbRKT_RKT0_, symObjAddr: 0x370, symBinAddr: 0x100003DDC, symSize: 0x34 }
+  - { offset: 0x57E8, size: 0x8, addend: 0x0, symName: __ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne180100Ec, symObjAddr: 0x3A4, symBinAddr: 0x100003E10, symSize: 0x84 }
+  - { offset: 0x585F, size: 0x8, addend: 0x0, symName: __ZNKSt3__15ctypeIcE5widenB8ne180100Ec, symObjAddr: 0x454, symBinAddr: 0x100003EC0, symSize: 0x38 }
+...

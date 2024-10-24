@@ -35,7 +35,40 @@ typedef pair<int, int> pii;
 #define FAST ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
 
 void solve(){
-
+    string s;
+    cin >> s;
+    string possible = "Yes";
+    int n = s.length();
+    if(s[0] == possible[0] || s[0] == possible[1] || s[0] == possible[2]){
+        if(s[0] == possible[0]){
+            for(int i = 0; i < n; i++){
+                if(s[i] != possible[i % 3]){
+                    cout << "NO" << endl;
+                    return;
+                }
+            }
+        }
+        else if(s[0] == possible[1]){
+            for(int i = 0; i < n; i++){
+                if(s[i] != possible[(i+1) % 3]){
+                    cout << "NO" << endl;
+                    return;
+                }
+            }
+        }
+        else{
+            for(int i = 0; i < n; i++){
+                if(s[i] != possible[(i+2) % 3]){
+                    cout << "NO" << endl;
+                    return;
+                }
+            }
+        }
+        cout << "YES" << endl;
+    }
+    else{
+        cout << "NO" << endl;
+    }
 }
 
  
