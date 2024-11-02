@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     E_Reverse_the_Rivers
+relocations:     []
+...
