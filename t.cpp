@@ -2,7 +2,7 @@
 using namespace std;
 #define int long long
 
-void temp() {
+void solve() {
     int n;
     cin >> n;
     vector<int> out(n,0);
