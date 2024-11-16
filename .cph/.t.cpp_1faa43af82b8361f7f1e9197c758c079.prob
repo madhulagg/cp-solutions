@@ -1,0 +1,1 @@
+{"name":"Local: t","url":"/Users/madhulaggarwal/Documents/vsc/t.cpp","tests":[{"id":1731683970119,"input":"2\n3\n29\n","output":"-1\n1 2 3 6 10 2 7 6 10 1 7 3\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/madhulaggarwal/Documents/vsc/t.cpp","group":"local","local":true}
