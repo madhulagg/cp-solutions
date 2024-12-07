@@ -34,33 +34,52 @@ typedef pair<int, int> pii;
 #define rv(v) v.end(), v.begin()
 #define FAST ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
 
-void solve() {
-    int m, k;
-    cin >> m >> k;
-    
-    unordered_map<int, int> b;
-    for (int i = 0; i < k; i++) {
-        int br, co;
-        cin >> br >> co;
-        b[br] += co;
+template <typename T>
+void vec_input(vector<T>& v, int length, bool one_indexed = false) {
+    T temp;
+    if (one_indexed) {
+        v.emplace_back(0);
     }
-    
-    vector<int> p;
-    for (const auto& x : b) {
-        p.push_back(x.second);
+    fl(i, 0 + one_indexed, length + one_indexed) {
+        cin >> temp;
+        v.emplace_back(temp);
     }
-    
-    sort(p.rbegin(), p.rend());
-    
-    int t = 0;
-    for (int i = 0; i < min(m, (int)p.size()); i++) {
-        t += p[i];
-    }
-    
-    cout << t << endl;
 }
 
+#include <iostream>
+#include <vector>
+using namespace std;
 
+void solve() {
+    int n, k;
+    cin >> n >> k;
+
+    int grid[n][n];
+    for (int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        for (int j = 0; j < n; j++) {
+            grid[i][j] = s[j] - '0'; 
+        }
+    }
+
+    int r = n / k;
+    int reduced_grid[r][r];
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < r; j++) {
+            int top_left_row = i * k;
+            int top_left_col = j * k;
+            reduced_grid[i][j] = grid[top_left_row][top_left_col];
+        }
+    }
+
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < r; j++) {
+            cout << reduced_grid[i][j];
+        }
+        cout << endl;
+    }
+}
 
  
 signed main(){
@@ -72,4 +91,3 @@ signed main(){
         solve();
     }
 }
-

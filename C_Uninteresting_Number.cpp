@@ -34,33 +34,47 @@ typedef pair<int, int> pii;
 #define rv(v) v.end(), v.begin()
 #define FAST ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
 
-void solve() {
-    int m, k;
-    cin >> m >> k;
-    
-    unordered_map<int, int> b;
-    for (int i = 0; i < k; i++) {
-        int br, co;
-        cin >> br >> co;
-        b[br] += co;
+template <typename T>
+void vec_input(vector<T>& v, int length, bool one_indexed = false) {
+    T temp;
+    if (one_indexed) {
+        v.emplace_back(0);
     }
-    
-    vector<int> p;
-    for (const auto& x : b) {
-        p.push_back(x.second);
+    fl(i, 0 + one_indexed, length + one_indexed) {
+        cin >> temp;
+        v.emplace_back(temp);
     }
-    
-    sort(p.rbegin(), p.rend());
-    
-    int t = 0;
-    for (int i = 0; i < min(m, (int)p.size()); i++) {
-        t += p[i];
-    }
-    
-    cout << t << endl;
 }
 
+void solve(){
+    string s;
+    cin >> s;
+    int sum = 0;
+    int f2 = 0;
+    int f3 = 0;
 
+    for(int i = 0; i < s.length(); i++){
+        sum+=(s[i] - '0');
+        if(s[i] == '2') f2++;
+        if(s[i] == '3') f3++;
+    }   
+    if(sum % 9 == 0) {
+        cout << "YES" << endl;
+        return;
+    }
+    else{
+        for(int i = 0; i <= f2; i++){
+            for(int j = 0; j <= f3; j++){
+                if((sum + (2*i) + (6*j)) % 9 == 0) {
+                    cout << "YES" << endl;
+                    return;
+                }
+            }
+        }
+        cout << "NO" << endl;
+        return;
+    }
+}
 
  
 signed main(){
@@ -72,4 +86,3 @@ signed main(){
         solve();
     }
 }
-

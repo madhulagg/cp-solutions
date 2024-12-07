@@ -34,33 +34,42 @@ typedef pair<int, int> pii;
 #define rv(v) v.end(), v.begin()
 #define FAST ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
 
-void solve() {
-    int m, k;
-    cin >> m >> k;
-    
-    unordered_map<int, int> b;
-    for (int i = 0; i < k; i++) {
-        int br, co;
-        cin >> br >> co;
-        b[br] += co;
+template <typename T>
+void vec_input(vector<T>& v, int length, bool one_indexed = false) {
+    T temp;
+    if (one_indexed) {
+        v.emplace_back(0);
     }
-    
-    vector<int> p;
-    for (const auto& x : b) {
-        p.push_back(x.second);
+    fl(i, 0 + one_indexed, length + one_indexed) {
+        cin >> temp;
+        v.emplace_back(temp);
     }
-    
-    sort(p.rbegin(), p.rend());
-    
-    int t = 0;
-    for (int i = 0; i < min(m, (int)p.size()); i++) {
-        t += p[i];
-    }
-    
-    cout << t << endl;
 }
 
+void solve(){
+    int n;
+    cin >> n;
+    vll v(n);
+    int sum = 0;
+    for(int i = 0; i < n; i++){
+        cin >> v[i];
+        sum+=v[i];
+    }
+    int mean = sum / n;
+    for(int i = 1; i <= n - 2; i++){
+        int t = mean - v[i - 1];
+        v[i-1] += t;
+        v[i+1] -= t;
+    }
 
+    if(v[n-1] == mean && v[n-2] == mean && n >= 2) {
+        py;
+    }
+    else{
+        pn;
+    }
+
+}
 
  
 signed main(){
@@ -72,4 +81,3 @@ signed main(){
         solve();
     }
 }
-

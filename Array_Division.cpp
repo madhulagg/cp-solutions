@@ -34,42 +34,52 @@ typedef pair<int, int> pii;
 #define rv(v) v.end(), v.begin()
 #define FAST ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
 
-void solve() {
-    int m, k;
-    cin >> m >> k;
-    
-    unordered_map<int, int> b;
-    for (int i = 0; i < k; i++) {
-        int br, co;
-        cin >> br >> co;
-        b[br] += co;
+template <typename T>
+void vec_input(vector<T>& v, int length, bool one_indexed = false) {
+    T temp;
+    if (one_indexed) {
+        v.emplace_back(0);
     }
-    
-    vector<int> p;
-    for (const auto& x : b) {
-        p.push_back(x.second);
+    fl(i, 0 + one_indexed, length + one_indexed) {
+        cin >> temp;
+        v.emplace_back(temp);
     }
-    
-    sort(p.rbegin(), p.rend());
-    
-    int t = 0;
-    for (int i = 0; i < min(m, (int)p.size()); i++) {
-        t += p[i];
-    }
-    
-    cout << t << endl;
 }
 
-
+void solve(){
+    int n,k;
+    cin >> n >> k;
+    vll v(n);
+    int sum = 0;
+    int m_sum = INT_MIN;
+    for(int i = 0; i < n; i++){
+        cin >> v[i];
+        sum += v[i];
+    }
+    int targetsum = sum/k;
+    cout << targetsum << endl;
+    sum = 0;
+    for(int i = 0; i < n; i++){
+        sum+=v[i];
+        cout << sum << " ";
+        if(sum > targetsum){
+            m_sum = max(m_sum, sum);
+            sum = 0;
+        }
+        else{
+            // m_sum+=v[i];
+        }
+    }
+    cout << m_sum + 1 << endl;
+}
 
  
 signed main(){
     FAST;
     int testcase;
-    cin>>testcase;
-    // testcase = 1;
+    // cin>>testcase;
+    testcase = 1;
     while(testcase--){
         solve();
     }
 }
-
