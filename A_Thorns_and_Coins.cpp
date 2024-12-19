@@ -45,55 +45,29 @@ void vec_input(vector<T>& v, int length, bool one_indexed = false) {
         v.emplace_back(temp);
     }
 }
-bool predicatefunc(int n, int k, vector<int> &v){
-    int init = 1;
-    int curr = 0;
-    for(auto it : v){
-        if(curr + it <= n){
-            curr += it;
-        }
-        else{
-            if(init < k){
-                init++;
-            }
-            else{
-                return false;
-            }
-            curr = it;
-        }
-    }
-    return true;
-}
-// fffffttttttttttttttttt
+
 void solve(){
     int n;
-    int k;
-    vector<int> v;
-    cin >> n >> k;
+    cin >> n;
+    vector<char> v;
     vec_input(v,n);
-    int l = *max_element(v.begin(), v.end());
-    int r = accumulate(v.begin(), v.end(), 0LL);
-    int m;
-    int ans = LLONG_MAX;
-    while(l <= r){
-        m = (l + r)/2;
-        if(predicatefunc(m,k,v)){
-            ans = min(ans, m);
-            r = m - 1;
-        }
-        else{
-            l = m + 1;
-        }
+    int ans = INT_MIN;
+    int tcnt = 0;
+    vector<int> dp(n, 0);
+    if(v[0] == '@') dp[0] = 1;
+    for(int i = 1; i < n; i++){
+        if(i >= 1 && v[i-1] != '*') dp[i] = max(dp[i-1], dp[i]);
+        if(i >= 2 && v[i-2] != '*') dp[i] = max(dp[i-2], dp[i]);
+        if(v[i-1] == '*' && v[i-2] == '*' && i > 1) i = n; 
+        if(v[i] == '@') dp[i]++;
     }
-    cout << ans;
+    cout << *max_element(dp.begin(), dp.end()) << endl;
 }
-
- 
 signed main(){
     FAST;
     int testcase;
-    // cin>>testcase;
-    testcase = 1;
+    cin>>testcase;
+    // testcase = 1;
     while(testcase--){
         solve();
     }

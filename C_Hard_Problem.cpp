@@ -45,55 +45,49 @@ void vec_input(vector<T>& v, int length, bool one_indexed = false) {
         v.emplace_back(temp);
     }
 }
-bool predicatefunc(int n, int k, vector<int> &v){
-    int init = 1;
-    int curr = 0;
-    for(auto it : v){
-        if(curr + it <= n){
-            curr += it;
-        }
-        else{
-            if(init < k){
-                init++;
-            }
-            else{
-                return false;
-            }
-            curr = it;
-        }
-    }
-    return true;
-}
-// fffffttttttttttttttttt
-void solve(){
-    int n;
-    int k;
-    vector<int> v;
-    cin >> n >> k;
-    vec_input(v,n);
-    int l = *max_element(v.begin(), v.end());
-    int r = accumulate(v.begin(), v.end(), 0LL);
-    int m;
-    int ans = LLONG_MAX;
-    while(l <= r){
-        m = (l + r)/2;
-        if(predicatefunc(m,k,v)){
-            ans = min(ans, m);
-            r = m - 1;
-        }
-        else{
-            l = m + 1;
-        }
-    }
-    cout << ans;
-}
 
+// void solve(){   
+//     int m,a,b,c;
+//     cin >> m >> a >> b >> c;
+//     int tt = 2*m;
+//     int cnt = 0;
+//     int lefta = 0;
+//     int leftb = 0;
+//     if(a <= m){
+//         cnt+=a;
+//         lefta = m - a;
+//     }
+//     if(b <= m){
+//         cnt+=b;
+//         leftb = m-b;
+//     }
+//     if(a > m){
+//         cnt+=a;
+//     }
+//     if(b > m){
+//         cnt += b;
+//     }
+//     if(lefta + leftb <= c) cnt+=c;
+//     cout << cnt << endl;
+
+// }
+void solve(){   
+        long long m, a, b, c;
+        cin >> m >> a >> b >> c;
+        long long seated_row1 = min(m, a); 
+        long long seated_row2 = min(m, b);
+        long long remaining_row1 = m - seated_row1;
+        long long remaining_row2 = m - seated_row2;
+        long long seated_c = min(c, remaining_row1 + remaining_row2);
+        long long total_seated = seated_row1 + seated_row2 + seated_c;
+        cout << total_seated << endl;
+}
  
 signed main(){
     FAST;
     int testcase;
-    // cin>>testcase;
-    testcase = 1;
+    cin>>testcase;
+    // testcase = 1;
     while(testcase--){
         solve();
     }

@@ -45,47 +45,36 @@ void vec_input(vector<T>& v, int length, bool one_indexed = false) {
         v.emplace_back(temp);
     }
 }
-bool predicatefunc(int n, int k, vector<int> &v){
-    int init = 1;
-    int curr = 0;
-    for(auto it : v){
-        if(curr + it <= n){
-            curr += it;
-        }
-        else{
-            if(init < k){
-                init++;
-            }
-            else{
-                return false;
-            }
-            curr = it;
-        }
+
+bool valid(int time, int k, const vector<int>& machines) {
+    int totalProducts = 0;
+    for (int productionTime : machines) {
+        totalProducts += time / productionTime;
+        if (totalProducts >= k) return true;
     }
-    return true;
+    return totalProducts >= k;
 }
-// fffffttttttttttttttttt
-void solve(){
-    int n;
-    int k;
-    vector<int> v;
+// ffffttt
+void solve() {
+    int n, k;
     cin >> n >> k;
-    vec_input(v,n);
-    int l = *max_element(v.begin(), v.end());
-    int r = accumulate(v.begin(), v.end(), 0LL);
-    int m;
-    int ans = LLONG_MAX;
-    while(l <= r){
-        m = (l + r)/2;
-        if(predicatefunc(m,k,v)){
-            ans = min(ans, m);
-            r = m - 1;
-        }
-        else{
-            l = m + 1;
+    vector<int> machines(n);
+    for (int i = 0; i < n; i++) cin >> machines[i];
+
+    int l = 1, r = *min_element(machines.begin(), machines.end()) * k;
+    int ans = -1;
+
+    while (l <= r) {
+        int mid = l + (r - l) / 2;
+        if (valid(mid, k, machines)) {
+            ans = mid;
+            r = mid - 1; 
+        } else {
+            l = mid + 1; 
         }
     }
-    cout << ans;
+
+    cout << ans << "\n";
 }
 
  

@@ -45,45 +45,33 @@ void vec_input(vector<T>& v, int length, bool one_indexed = false) {
         v.emplace_back(temp);
     }
 }
-bool predicatefunc(int n, int k, vector<int> &v){
-    int init = 1;
-    int curr = 0;
-    for(auto it : v){
-        if(curr + it <= n){
-            curr += it;
-        }
-        else{
-            if(init < k){
-                init++;
-            }
-            else{
-                return false;
-            }
-            curr = it;
-        }
+
+bool valid(const vector<int>& v, double mid, int k) {
+    int count = 0;
+    for (int length : v) {
+        count += ((int)(length / mid)); 
     }
-    return true;
+    return count >= k; 
 }
-// fffffttttttttttttttttt
 void solve(){
-    int n;
-    int k;
-    vector<int> v;
+    int n,k;
     cin >> n >> k;
+    vector<int> v;
     vec_input(v,n);
-    int l = *max_element(v.begin(), v.end());
-    int r = accumulate(v.begin(), v.end(), 0LL);
-    int m;
-    int ans = LLONG_MAX;
-    while(l <= r){
-        m = (l + r)/2;
-        if(predicatefunc(m,k,v)){
-            ans = min(ans, m);
-            r = m - 1;
+    double l = 0;
+    double r = *max_element(v.begin(), v.end());
+    double prec = 1e-8;
+    double ans = INT_MIN;
+    while(r - l > prec){
+        double mid = l + (r-l)/2;
+        if(valid(v,mid,k)){
+            ans = max(mid, ans);
+            l = mid + prec;
         }
         else{
-            l = m + 1;
+            r = mid - prec;
         }
+        
     }
     cout << ans;
 }
