@@ -47,6 +47,7 @@ bool isPrime(ll n)
             return false;
     return true;
 }
+// 2 power hai ya nhi - t / f (bool) ;  0,1(int/bool) 
 bool isPowerOfTwo(int n)
 {
     if (n == 0)
@@ -166,5 +167,8 @@ signed main(){
     cin>>testcase;
     while(testcase--){
         solve();
+        /*
+        int 
+        int x = solve();*/
     }
 }

@@ -9,7 +9,7 @@ using lld = long double;
 using ull = unsigned long long;
 
 const lld pi = 3.141592653589793238;
-const ll INF = LONG_LONG_MAX;
+const ll INF = LLONG_MAX;
 const ll mod = 1e9 + 7;
 
 typedef pair<ll, ll> pll;
@@ -34,44 +34,20 @@ typedef pair<int, int> pii;
 #define rv(v) v.end(), v.begin()
 #define FAST ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
 
-int sum(int x) {
-    return x * (x + 1) / 2;
-}
-
-int interval(int l, int r) {
-    return sum(r) - sum(l - 1);
-}
-
-void solve() {
-    int n, m, s = 0;
-    cin >> n >> m;
-
-    for (int i = 0; i < n; ++i) {
-        int l;
-        cin >> l;
-        set<int> t;
-
-        for (int j = 0, x; j < l; ++j) {
-            cin >> x;
-            t.insert(x);
-        }
-
-        bool flag = true;
-        for (int i = 0; ; ++i) {
-            if (!t.count(i)) {
-                if (flag) flag = false;
-                else {
-                    s = max(s, i);
-                    break;
-                }
-            }
-        }
+template <typename T>
+void vec_input(vector<T>& v, int length, bool one_indexed = false) {
+    T temp;
+    if (one_indexed) {
+        v.emplace_back(0);
     }
+    fl(i, 0 + one_indexed, length + one_indexed) {
+        cin >> temp;
+        v.emplace_back(temp);
+    }
+}
 
-    if (m <= s) 
-        cout << s * (m + 1) << endl;
-    else 
-        cout << s * (s + 1) + interval(s + 1, m) << endl;
+void solve(){
+
 }
 
  

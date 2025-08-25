@@ -51,7 +51,7 @@ bool valid(vector<pair<int,int> >&v, int mid, int n){
     int y = 0;
     for(int i = 0; i < n; i++){
         x = max(x - mid, v[i].first);
-        y = min(x + mid, v[i].second);
+        y = min(y + mid, v[i].second);
         if(x > y) return false;
     }
     if(x > y) return false;

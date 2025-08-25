@@ -6,7 +6,9 @@
         "forward_list": "cpp",
         "list": "cpp",
         "string": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "ios": "cpp",
+        "vector": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled",
     "code-runner.executorMap": {

@@ -15,3 +15,8 @@ int main(){
         
     }
 }
+
+int x;
+int y;
+cin >> x >> y;
+cout << 5000*x + y;
